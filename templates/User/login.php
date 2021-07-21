@@ -1,4 +1,3 @@
-// in templates/Users/login.php
 <div class="users form content">
     <?= $this->Form->create() ?>
     <fieldset>
