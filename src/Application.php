@@ -141,7 +141,7 @@ public function getAuthenticationService(ServerRequestInterface $request): Authe
         'unauthenticatedRedirect' => Router::url([
                 'prefix' => false,
                 'plugin' => null,
-                'controller' => 'Users',
+                'controller' => 'User',
                 'action' => 'login',
         ]),
         'queryParam' => 'redirect',
@@ -158,7 +158,7 @@ public function getAuthenticationService(ServerRequestInterface $request): Authe
         'loginUrl' => Router::url([
             'prefix' => false,
             'plugin' => null,
-            'controller' => 'Users',
+            'controller' => 'User',
             'action' => 'login',
         ]),
     ]);
