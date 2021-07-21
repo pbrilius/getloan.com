@@ -29,13 +29,15 @@ use Cake\ORM\Locator\TableLocator;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
 
+use Authentication\AuthenticationServiceProviderInterface;
+
 /**
  * Application setup class.
  *
  * This defines the bootstrapping logic and middleware layers you
  * want to use in your application.
  */
-class Application extends BaseApplication
+class Application extends BaseApplication implements AuthenticationServiceProvderInterface
 {
     /**
      * Load all the application configuration and bootstrap logic.
@@ -44,6 +46,10 @@ class Application extends BaseApplication
      */
     public function bootstrap(): void
     {
+        $this->addPlugin('Authorization');
+
+        $this->addPlugin('Authentication');
+
         $this->addPlugin('DebugKit');
 
         // Call parent to load bootstrap from files.
