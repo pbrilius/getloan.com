@@ -23,6 +23,7 @@ final class UserMigration extends AbstractMigration
       $table->addColumn('email', 'string', ['limit' => 256]);
       $table->addColumn('password', 'string',  ['limit' => 256]);
       $table->addIndex(['username', 'email'], ['unique' => true]);
+      $table->changeComment('Users entity list created table.');
       $table->create();
     }
 }
