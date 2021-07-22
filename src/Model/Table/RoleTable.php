@@ -40,6 +40,11 @@ class RoleTable extends Table
         $this->setTable('role');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->belongsToMany('User', [
+          'joinTable' => 'user_role',
+        ]);
+
     }
 
     /**

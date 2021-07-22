@@ -48,6 +48,10 @@ class UserTable extends Table
         $this->belongsTo('Loan')
           ->setForeignKey('borrower')
           ->setJoinType('INNER');
+
+        $this->belongsToMany('Roles', [
+          'join_table' => 'user_role',
+        ]);
     }
 
     /**
