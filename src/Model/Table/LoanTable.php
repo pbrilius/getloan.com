@@ -40,6 +40,20 @@ class LoanTable extends Table
         $this->setTable('loan');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this
+          ->hasOne('Lender', ['className' => 'UserTable'])
+          ->setName('Lender')
+          ->setProperty('lender')
+          ->setFinder('primary')
+          ->setDependent(true);
+
+        $this
+          ->hasOne('Borrower', ['className' => 'LoanTable'])
+          ->setName('Borrower')
+          ->setProperty('borrower')
+          ->setFinder('primary')
+          ->setDependent(true);
     }
 
     /**

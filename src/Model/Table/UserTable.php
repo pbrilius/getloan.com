@@ -40,6 +40,14 @@ class UserTable extends Table
         $this->setTable('user');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->belongsTo('loan')
+          ->setForeignKey('lender')
+          ->setJoinType('INNER');
+
+        $this->belongsTo('loan')
+          ->setForeignKey('borrower')
+          ->setJoinType('INNER');
     }
 
     /**
