@@ -19,11 +19,10 @@ final class PaymentSlip extends AbstractMigration
     public function change(): void
     {
       $paymentSlip = $this->table('payment_slip');
-      $paymentSlip->changeComment('Actual payment slip.');
-      $paymentSlip->addColumn('membership_type', 'integer', ['null' => false]);
+      $paymentSlip->addColumn('premium_membership_id', 'integer', ['null' => false]);
       $paymentSlip->addColumn('user_id', 'integer', ['null' => false]);
 
-      $paymentSlip->addForeignKey('membership_type', 'premium_membership', 'id');
+      $paymentSlip->addForeignKey('premium_membership_id', 'premium_membership', 'id');
       $paymentSlip->addForeignKey('user_id', 'user', 'id');
 
       $paymentSlip->save();
